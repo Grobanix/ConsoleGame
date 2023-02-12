@@ -14,6 +14,16 @@ Area::~Area() {
         delete[] Map[i];
     }
     delete[] Map;
+    delete[] Objects;
+    delete[] Killables;
+}
+
+template <class T> void Area::NewObject() {
+    Objects[ObjectsCount] = new T;
+}
+
+template <class T> void Area::NewKillable() {
+    Killables[KillablesCount] = new T;
 }
 
 void Area::ToMap () {
